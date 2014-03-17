@@ -32,6 +32,7 @@ capybara-*.html
 /spec/tmp/*
 **.orig
 rerun.txt
+edit.bat
 pickle-email-*.html
 .project
 config/initializers/secret_token.rb

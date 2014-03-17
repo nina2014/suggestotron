@@ -6,14 +6,35 @@ gem 'rails', '4.0.3'
 
 group :development, :test do
 	# Use sqlite3 as the database for Active Record
-	gem 'sqlite3'
+	#gem 'sqlite3'
+	if RUBY_PLATFORM =~ /win32/
+	  #puts "~ /win32/"
+	  gem "sqlite3", :platform => [:mswin, :mingw]
+	elsif RUBY_PLATFORM =~ /x64-mingw32/
+	  #puts "mingw32"
+	  gem "sqlite3", :platform => [:mswin, :mingw]
+	else
+	  #puts "else"
+	  gem "sqlite3", :platform => :ruby
+	end
 end
 
 group :production do
 	# Use mysql as the database for Active Record
 	#gem 'mysql2'
-	gem 'pg'
+	#gem 'pg'
 	# gem 'rails_12factor'
+	#puts RUBY_PLATFORM
+	if RUBY_PLATFORM =~ /win32/
+	  #puts "~ /win32/"
+	  gem "pg", :platform => [:mswin, :mingw]
+	elsif RUBY_PLATFORM =~ /x64-mingw32/
+	  #puts "mingw32"
+	  gem "pg", :platform => [:mswin, :mingw]
+	else
+	  #puts "else"
+	  gem "pg", :platform => :ruby
+	end
 end
 
 
